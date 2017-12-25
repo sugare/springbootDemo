@@ -3,6 +3,7 @@ package com.song.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.song.mapper.UserMapper;
@@ -21,9 +22,9 @@ public class UserServiceImpl implements UserService {
 		return userMapper.findUserById(id);
 	}
 
-	@Override
+	@Cacheable(value="findUsers")
 	public List<User> findUsers() throws Exception {
-		
+		System.out.println("添加到缓存。。。");
 		return userMapper.findUsers();
 	}
 	

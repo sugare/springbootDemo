@@ -5,10 +5,14 @@ package com.song.po;
 * @description 说明：User.java
 */
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
-    private Integer id;
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+	private Integer id;
 
     private String username;
 
